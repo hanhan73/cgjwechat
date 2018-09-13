@@ -1,0 +1,13 @@
+
+<ion-content>
+  <ion-list>
+        <ion-item *ngFor="let item of openlist">
+          <ion-label> {{item.typename}}</ion-label>
+          <ion-toggle  checked="true" (ionChange)="deltype(item)"></ion-toggle>
+        </ion-item>
+        <ion-item *ngFor="let item of addlist">
+          <ion-label> {{item.name}}</ion-label>
+          <ion-toggle  checked="false" (ionChange)="addtype(item)"></ion-toggle>
+        </ion-item>
+  </ion-list>
+</ion-content>

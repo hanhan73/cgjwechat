@@ -14,3 +14,25 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.selectable {
+    -webkit-user-select: auto;//控制网页内容选择范围
+  }
+#map_container{
+    width: 100%;
+    height: 100%;
+}
+.head {
+    .toolbar {
+        min-height: 50px;
+    }
+    .toolbar-title {
+        color: white;
+        text-align: center;
+    }
+    .toolbar-background {
+        background: linear-gradient(#416ADE,#0E4BBE);
+    }
+    .bar-button {
+        color: white;
+    }
+}

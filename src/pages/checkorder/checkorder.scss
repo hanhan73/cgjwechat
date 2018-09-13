@@ -1,0 +1,35 @@
+page-checkorder {
+  ion-header {
+    height: 10%;
+    background: linear-gradient(to right, #39dabd, #10beeb);
+    display: flex;
+    justify-content:center;
+    align-items:Center;
+    ion-title {
+      color: white;
+      letter-spacing: 0.1rem;
+      text-align: center;
+      .toolbar-title{
+        color: white;
+      }
+    }
+  }
+
+  .orderid-row {
+    margin: 30% 10% 0% 10%;
+    .orderid-col {
+      .orderid-input {
+        border-radius: 35px;
+        border: 1px solid #4894da;
+      }
+      .text-input {
+        text-align: center;
+        font-size: 1.6rem;
+      }
+      .orderid-btn {
+        width: 100%;
+        border-radius: 35px;
+      }
+    }
+  }
+}

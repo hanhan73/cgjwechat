@@ -1,0 +1,71 @@
+<ion-header no-border class="head">
+
+  <ion-navbar class="navbar-header">
+    <ion-title class="title-header">申请账号</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="docs-home">
+  <!--<ion-row class="input-row">
+    <ion-col class="input-col">
+      <ion-input type="text" no-border class="form-control" placeholder="请输入订单号"></ion-input>
+    </ion-col>
+  </ion-row>-->
+
+  <ion-list>
+
+    <!-- <ion-item>
+      <ion-row class="id-row">
+      <ion-col col-5 class="id-col"> 订单号</ion-col>
+      <ion-col col-7 class="id-col">{{id}}</ion-col>
+      </ion-row>
+    </ion-item> -->
+    <ion-item class="list-item">
+      <img src="../../assets/apply/name.svg" width="11%" item-start>
+      <ion-label>
+        姓名</ion-label>
+      <ion-input type="text" maxlength="20" placeholder="请输入姓名" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <img src="../../assets/apply/phone.svg" width="11%" item-start>
+      <ion-label>手机号</ion-label>
+      <ion-input type="tel" maxlength="11" placeholder="请输入手机号" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+   
+    <!-- <ion-item>
+      <ion-label  col-5>账号名称</ion-label>
+      <ion-input type="text" [(ngModel)]="accountname" placeholder="请输入账号名称"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  col-5>登录账号</ion-label>
+      <ion-input type="text" [(ngModel)]="loginaccount" placeholder="请输入登录账号"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  col-5>登录密码</ion-label>
+      <ion-input type="password" [(ngModel)]="pwd" placeholder="请输入登录密码"></ion-input>
+    </ion-item> -->
+
+  </ion-list>
+
+  <ion-row class="btn-row">
+    <ion-col class="btn-col">
+      <button ion-button (click)="submit()">提交</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col class="alert-span"><span>*注：请务必填写真实信息</span></ion-col>
+    </ion-row>
+    
+    <ion-row>
+        <ion-col class="alert-span"><span>人工核实不通过，则无法获得账号!</span></ion-col>
+    </ion-row>
+    <ion-row class="footer-row">
+        <ion-col align-items-center class="footer-col" type="text">
+          <div class="selectable">PC端掌云车管家：gps.dtmobi.com</div></ion-col>
+      </ion-row>
+    <img src="../../assets/apply/logo.jpg" class="pos-img">
+</ion-content>

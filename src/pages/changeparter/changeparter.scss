@@ -1,0 +1,40 @@
+page-changeparter {
+    .item-list {
+        color: #93979E;
+        .itemdivider {
+            font-size: 1.2rem;
+            color: #4CA1FE;
+        }
+        .item-label {
+            color: #93979E;
+        }
+        
+    }
+    .list {
+        margin: -1px 0 10px !important;
+    }
+    .carinfo-list {
+        .info-col {
+            text-align: right;
+            color: #93979E;
+        }
+    }
+    .card-info {
+        font-size: 1.2rem;
+        color: #93979E;
+        .h4-card {
+            margin-left: 5px;
+        }
+        .row-card {
+            font-size: 1.4rem;
+            text-align: left;
+        }
+    }
+    .footer-btn {
+        text-align: center;    
+        .btn-style {
+            width: 60%;
+        }
+    }
+    
+}

@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PlaybackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header no-border class="head">
+
+  <ion-navbar class="navbar-header">
+    <ion-title class="title-header">轨迹回放</ion-title>
+    <button ion-button class="start-btn" small outline (click)="go()">开始</button>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content class="content-playback">
+  <div #map id="map_container"></div>
+  <div class="playtime-div">
+    <ion-row class="playtime-row">
+        <ion-col col-1></ion-col>
+      
+      <ion-col col-4 style="padding: 4px !important;" class="playtime-col" align-self-center>
+        <span style="color:darkgray">始:</span> <ion-datetime style="padding:2px" displayFormat="YYYY-MM-DD" [(ngModel)]="stime"></ion-datetime>    
+      </ion-col>
+      
+      <ion-col col-4 style="padding: 4px !important;" class="playtime-col" align-self-center>
+        <span style="color:darkgray">末: </span><ion-datetime style="padding:2px" displayFormat="YYYY-MM-DD" [(ngModel)]="etime"></ion-datetime>
+      </ion-col>
+      <!-- <ion-col col-1></ion-col> -->
+      <ion-col col-3 class="playtime-col">
+        <button ion-button outline class="playtime-btn" hidden small (click)="shiftdown()">减速</button>
+        <button ion-button outline  class="playtime-btn" hidden small (click)= "addspeed()">加速</button>
+        <button ion-button class="start-btn" small (click)="go()">开始</button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+

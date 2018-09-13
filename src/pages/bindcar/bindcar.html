@@ -1,0 +1,94 @@
+<!--
+  Generated template for the BindcarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>bindcar</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content>
+  <ion-list class="carinfo-list">
+      <ion-list-header color="light">
+          车辆信息
+      </ion-list-header>
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="../../assets/changeparter/chepai.svg" >
+        </ion-avatar>
+      <ion-row>
+        <ion-col col-4>车牌号</ion-col>
+        <ion-col col-8 class="info-col">{{bindinfo.carNumber}}</ion-col>
+      </ion-row>
+    </ion-item>
+    
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="../../assets/changeparter/chejia.svg" >
+        </ion-avatar>
+        <ion-row>
+            <ion-col col-4>车架号</ion-col>
+            <ion-col col-8 class="info-col">{{bindinfo.vinNumber}}</ion-col>
+          </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/changeparter/pin.svg" >
+      </ion-avatar>
+      <ion-row>
+          <ion-col col-4  align-self-center>
+              车品牌
+          </ion-col>
+          <ion-col col-8 class="info-col">{{bindinfo.brand}}</ion-col>
+      </ion-row>
+  </ion-item>
+  <ion-item>
+    <ion-avatar item-start>
+        <img src="../../assets/apply/name.svg" >
+    </ion-avatar>
+    <ion-row>
+        <ion-col col-4  align-self-center>
+            组别
+        </ion-col>
+        <ion-col col-8 class="info-col">{{bindinfo.partnerName}}</ion-col>
+    </ion-row>
+  </ion-item>
+  </ion-list>
+  <ion-list no-padding class="device-list">
+      <ion-list-header color="light">
+          设备绑定
+      </ion-list-header>
+      <ion-item>
+        <ion-label class="device-label">
+          设备号
+        </ion-label>
+        <ion-input #box class="device-input" type="text" placeholder="请输入设备号" clearInput (blur)="getuser(box.value)"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label class="device-label">
+            所属账号
+          </ion-label>
+          <ion-input class="device-input" readonly [(ngModel)]="pname"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+          <ion-label class="device-label">安装位置</ion-label>
+          <ion-select class="device-input" [(ngModel)]="position" interface='popover'>
+            <ion-option value="0">请选择</ion-option>
+            <ion-option value="主驾驶">主驾驶</ion-option>
+            <ion-option value="副驾驶">副驾驶</ion-option>
+            <ion-option value="后备箱">后备箱</ion-option>
+            <ion-option value="前保险杆">前保险杆</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block [disabled]="btnstatus" class="device-btn" (click)= 'submitbind()'>确定</button>
+  </div>
+</ion-content>

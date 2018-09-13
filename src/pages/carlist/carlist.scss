@@ -1,0 +1,119 @@
+page-carlist {
+    .head {
+        .toolbar {
+            min-height: 50px;
+        }
+        .toolbar-title {
+            color: white;
+            text-align: center;
+        }
+        .toolbar-background {
+            background: linear-gradient(#7168F3,#5C90F3);
+        }
+        .bar-button {
+            color: white;
+        }
+    }
+    .headlist-div {
+        background-color: #F8F8F8;
+        padding: 16px 16px 6px 16px !important;
+        .count-i {
+            // color: red;
+            font-size: 1.2rem;
+        }
+        .choose-col {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #5C90F3;
+            
+        }
+        .searchbar {
+            padding: 0;
+            margin-top: 5px;
+            background-color: #F8F8F8;
+            border-bottom: 0px solid rgba(0, 0, 0, 0.05);
+        }
+        .searchbar-input {
+            background-color: #e8e8e8;
+        }
+    }
+    .carlist {
+        span {
+            font-size: 1.3rem;
+        }
+        .carlist-item {
+            border-bottom: 9px solid #F0F4F7 !important;
+            // &:first-child {
+            //     border: 0 !important;
+            // }
+            padding-left:  8px !important;
+        }
+        .row-list {   
+            .img-col {
+                text-align: right;
+            }
+            .span-status {
+                 text-align: left;
+            }
+            .logo-span {
+                border: 1px solid #dcdfe6;
+                border-radius:   25px;
+                font-size: 1.3rem;
+                padding-bottom: 1px;
+                padding-top: 1px;
+                color: #6893F5;
+            }
+            .span-name {
+                font-weight: 600;
+                overflow: hidden;
+                font-size: 1.5rem;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
+            .col-gps {
+                text-align: center;
+                .span-gps {
+                    color: #F17D1E;
+                }
+            }
+            .lable-time {
+                color: #81817F;
+            }
+            .button-follow {
+                border-radius: 16px;
+                background-color: #6893F5;
+                height: 2em;   
+                width: 4.2em;
+            }
+            .btn-col {
+                text-align: center;
+            }
+            .button {
+                margin: 0;
+            }
+        }
+        .label {
+            margin: 5px 8px 5px 0;
+        }
+    }
+    .footer-back {
+        .toolbar {
+            min-height: 50px;
+            text-align: center;
+        }
+        .toolbar-background {
+            background-color: rgb(96, 126, 236);
+        }
+        ion-icon {
+            text-align: center;
+        }
+        .icon-footer {
+            font-size: 2em;
+            color: white;
+        }
+        .label {
+            margin: 0;
+            color: white;
+        }
+    }
+}

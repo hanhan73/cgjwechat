@@ -1,0 +1,40 @@
+<ion-content padding overflow-scroll='true'>
+  <ion-row class="logo-row">
+    <ion-col class="logo-col">
+      <img [src]="headimg" class="headimg">
+      <!-- ../../assets/carlogin/login1.png -->
+      <ion-label class="logo-label">{{nickname}}</ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row class="login-row">
+    <ion-col class="login-col">
+      <img src="../../assets/carlogin/account.png" class="img-input">
+      <ion-input (ionBlur)="blurInput()" (ionFocus)="focusInput()" class="login-input" [(ngModel)]="username"
+       [ngStyle]="{'border-bottom':inputcolor}" clearInput type="text" placeholder="请输入用户名" ></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="login-row">
+    <ion-col class="login-col">
+      <img src="../../assets/carlogin/password.png" class="img-input">
+      <ion-input (ionBlur)="blurInput1()" (ionFocus)="focusInput1()" class="login-input" [(ngModel)]="userpwd"
+       [ngStyle]="{'border-bottom':inputcolor1}" clearInput type="password" placeholder="请输入密码" ></ion-input>
+    </ion-col>
+  </ion-row>
+   <ion-item no-lines class="check-item">
+    <!-- <ion-checkbox item-end class="checkbox-item" [(ngModel)]="savepwd"></ion-checkbox> -->
+    <!-- <ion-label  class="lable-item" >绑定平台账号，下次直接登录</ion-label> -->
+  </ion-item>
+<ion-row class="login-row">
+  <button ion-button class="button-row" (click)="Login()">绑定</button>
+</ion-row>
+<ion-row class="footer-row">
+  <ion-col align-items-center class="footer-col" type="text"><div class="selectable">PC端掌云车管家：gps.dtmobi.com</div></ion-col>
+</ion-row>
+<ion-row class="footer-row" >
+    <ion-col align-items-center class="footer-col"><div class="selectable">客服电话：18948702515</div></ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer class="lable-footer">
+  <!-- <img style="width: 375px; height: 180px;" src="../../assets/carlogin/advertisement.jpg"> -->
+  
+</ion-footer>

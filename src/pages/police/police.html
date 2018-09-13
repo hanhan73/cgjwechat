@@ -1,0 +1,39 @@
+<!--
+  Generated template for the PolicePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header no-border class="head">
+
+  <ion-navbar class="navbar-header">
+    <ion-title class="title-header">报警信息</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content>
+  <div class="info-div" *ngFor="let item of policeitem">
+    <ion-row class="info-row">
+      <ion-col class="info-col">{{item.alerttime}}</ion-col>
+    </ion-row>
+    <ion-card class="info-card">
+        <ion-card-header class="header-card">
+          <ion-row>
+            <ion-col col-3  align-self-center><img src="../../assets/police/car.svg" class="car-img"> </ion-col>
+            <ion-col col-9 class="type-col"  align-self-center><span>{{item.typename}}</span></ion-col>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content class="content-card">
+          <ion-row>
+            <ion-col class="color-col" col-8>报警时间：<span>{{item.alerttime}}</span></ion-col>
+            <ion-col class="color-col" col-4>报警次数：<span>{{item.alertcount}}</span></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="color-col">报警地点：<span>{{item.address}}</span></ion-col>
+          </ion-row>
+        </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

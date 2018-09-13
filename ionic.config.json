@@ -1,8 +1,13 @@
 {
   "name": "wechatCGJ",
-  "app_id": "",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "https://gps.dtmobi.com/new-gps-web/api"
+    }
+  ],
+  "type": "ionic-angular"
 }

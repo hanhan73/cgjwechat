@@ -1,0 +1,41 @@
+page-police {
+   
+    .info-div {
+        margin-top: 2%;
+        .info-row {
+            width: 36%;
+            margin: 0 32% 0 32%;
+            background-color: #DADADA;
+            border-radius: 6px;
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            .info-col {
+                text-align: center;
+            }
+        }
+         .info-card {
+            border-radius: 5px;
+            .header-card {
+                .car-img {
+                    width: 50%;
+                }
+                background-color: #E7F5FD;
+                // border-left: 1px solid #1F87DD;
+                // border-top: 1px solid #1F87DD;
+                .type-col {
+                    font-size: 1.8rem;
+                }
+            }
+            .content-card {
+                padding:13px 9px 14px;
+                .color-col {
+                    color: #999999;
+                    span { 
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+    
+}

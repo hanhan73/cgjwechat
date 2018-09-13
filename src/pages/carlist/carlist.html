@@ -1,0 +1,245 @@
+
+<ion-content>
+  <div padding class="headlist-div">
+    <ion-segment [(ngModel)]="car">
+        <ion-segment-button value="online" (click)= "GetList()">
+            在线<i class="count-i" *ngIf="num === 0">({{sum}})</i>
+        </ion-segment-button>
+        <ion-segment-button value="offline" (click)= "GetList()">
+            离线<i class="count-i" *ngIf="num === 1">({{page.counts}})</i>
+        </ion-segment-button>
+        <ion-segment-button value="report" (click)= "GetList()">
+            报警<i class="count-i" *ngIf="num === 2">({{page.counts}})</i>
+        </ion-segment-button>
+        <ion-segment-button value="follow" (click)= "GetList()">
+            关注<i class="count-i" *ngIf="num === 3">({{page.counts}})</i>
+        </ion-segment-button>
+        <ion-segment-button value="all" (click)= "GetList()">
+            全部<i class="count-i" *ngIf="num === 5">({{page.counts}})</i>
+        </ion-segment-button>
+    </ion-segment>
+    <ion-row>
+        <ion-col col-2 align-self-center class="choose-col" (click) = "showCheckbox()">
+            设备
+        </ion-col>
+        <ion-col col-10 align-self-center> 
+             <ion-searchbar placeholder="请输入设备名称/IMEI" type="serach"  [(ngModel)]="myInput" (ionInput)="getItems()" debounce = "300"></ion-searchbar>
+        </ion-col>
+    </ion-row>
+  </div>
+  <div>
+</div>
+  <div [ngSwitch]="car" class="carlist">
+    <ion-list *ngSwitchCase="'all'">
+        <ion-item *ngFor="let item of caritem" (click)="Tocarinfo(item)" no-lines class="carlist-item">
+            <ion-row class="row-list">
+                    <ion-col col-1>
+                            <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-T'">T</ion-col>
+                            <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-V'">V</ion-col>
+                            <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-M'">M</ion-col>
+                    </ion-col>
+              <ion-col col-5 class="col-name"  align-self-center>
+                    <div  class="span-name">
+                        {{item.devicename}}
+                    </div>
+              </ion-col>
+              <ion-col col-1 style="padding-right: 0px;">
+                    <img  class="img-col" [src]="Geturl(item.objectState)">
+              </ion-col>
+              <!-- <ion-col col-3 class="col-status" style="padding-left: 0px;">
+                    <span class="span-status" [style.color]="spancolor">{{item.vehicleState}}</span>
+              </ion-col> -->
+              <ion-col col-5 class="col-gps">
+                    <span class="span-status" [style.color]="spancolor">{{item.vehicleState}}</span>
+                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == ''">无定位</span>
+                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == '0'">基站定位</span>
+                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == '1'">GPS定位</span>
+                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == '2'">wifi定位</span>
+              </ion-col>
+            </ion-row>
+            <ion-row class="row-list">
+                <ion-col col-9>
+                    <label class="lable-time">
+                        <span>定位时间：</span><span>{{item.gpsinfo.gpstime}}</span>
+                    </label><br/>
+                    <label class="lable-time">
+                           <span>信号时间：</span><span>{{item.gpsinfo.intime}}</span>
+                    </label>
+                </ion-col>
+                <ion-col col-3 class="btn-col">
+                    <button ion-button class="button-follow" (click)="Btnfollow(item)" [ngStyle]="btnstyle(item.isFllow)" >{{btnfollow}}</button>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'online'">
+        <ion-item *ngFor="let item of caritem" (click)="Tocarinfo(item)" no-lines class="carlist-item">
+                <ion-row class="row-list">
+                        <ion-col col-1>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-T'">T</ion-col>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-V'">V</ion-col>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-M'">M</ion-col>
+                        </ion-col>
+                    <ion-col col-5 class="col-name"  align-self-center>
+                        <div  class="span-name">
+                            {{item.devicename}}
+                        </div>
+                    </ion-col>
+                    <ion-col col-1 style="padding-right: 0px;">
+                        <img  class="img-col" [src]="Geturl(item.objectState)">
+                    </ion-col>
+                    <ion-col col-5 class="col-gps">
+                            <span class="span-status" [style.color]="spancolor">{{item.vehicleState}}</span>
+                            <span class="span-gps" *ngIf="item.gpsinfo.locationType === ''">无定位</span>
+                            <span class="span-gps" *ngIf="item.gpsinfo.locationType == '0'">基站定位</span>
+                            <span class="span-gps" *ngIf="item.gpsinfo.locationType == '1'">GPS定位</span>
+                            <span class="span-gps" *ngIf="item.gpsinfo.locationType == '2'">wifi定位</span>
+                      </ion-col>
+                </ion-row>
+                <ion-row class="row-list">
+                    <ion-col col-9>
+                        <label class="lable-time">
+                            <span>定位时间：</span><span>{{item.gpsinfo.gpstime}}</span>
+                        </label><br/>
+                        <label class="lable-time">
+                            <span>信号时间：</span><span>{{item.gpsinfo.intime}}</span>
+                        </label>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button class="button-follow" (click)="Btnfollow(item)" [ngStyle]="btnstyle(item.isFllow)" >{{btnfollow}}</button>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'offline'">
+        <ion-item *ngFor="let item of caritem" (click)="Tocarinfo(item)" no-lines class="carlist-item">
+                <ion-row class="row-list">
+                        <ion-col col-1>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-T'">T</ion-col>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-V'">V</ion-col>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-M'">M</ion-col>
+                        </ion-col>
+                        <ion-col col-5 class="col-name"  align-self-center>
+                            <div  class="span-name">
+                                {{item.devicename}}
+                            </div>
+                        </ion-col>
+                        <ion-col col-1 style="padding-right: 0px;">
+                            <img  class="img-col" [src]="Geturl(item.objectState)">
+                        </ion-col>
+                        <ion-col col-5 class="col-gps">
+                                <span class="span-status" [style.color]="spancolor">{{item.vehicleState}}</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType === ''">无定位</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType == '0'">基站定位</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType == '1'">GPS定位</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType == '2'">wifi定位</span>
+                          </ion-col>
+                </ion-row>
+                <ion-row class="row-list">
+                    <ion-col col-9>
+                        <label class="lable-time">
+                            <span>定位时间：</span><span>{{item.gpsinfo.gpstime}}</span>
+                        </label><br/>
+                        <label class="lable-time">
+                            <span>信号时间：</span><span>{{item.gpsinfo.intime}}</span>
+                        </label>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button class="button-follow" (click)="Btnfollow(item)" [ngStyle]="btnstyle(item.isFllow)" >{{btnfollow}}</button>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'follow'">
+            <ion-item *ngFor="let item of caritem" (click)="Tocarinfo(item)" no-lines class="carlist-item">
+                    <ion-row class="row-list">
+                            <ion-col col-1>
+                                    <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-T'">T</ion-col>
+                                    <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-V'">V</ion-col>
+                                    <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-M'">M</ion-col>
+                            </ion-col>
+                            <ion-col col-5 class="col-name"  align-self-center>
+                                <div  class="span-name">
+                                    {{item.devicename}}
+                                </div>
+                            </ion-col>
+                            <ion-col col-1 style="padding-right: 0px;">
+                                <img  class="img-col" [src]="Geturl(item.objectState)">
+                            </ion-col>
+                            <ion-col col-5 class="col-gps">
+                                    <span class="span-status" [style.color]="spancolor">{{item.vehicleState}}</span>
+                                    <span class="span-gps" *ngIf="item.gpsinfo.locationType === ''">无定位</span>
+                                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == '0'">基站定位</span>
+                                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == '1'">GPS定位</span>
+                                    <span class="span-gps" *ngIf="item.gpsinfo.locationType == '2'">wifi定位</span>
+                              </ion-col>
+                    </ion-row>
+                    <ion-row class="row-list">
+                        <ion-col col-9>
+                            <label class="lable-time">
+                                <span>定位时间：</span><span>{{item.gpsinfo.gpstime}}</span>
+                            </label><br/>
+                            <label class="lable-time">
+                                <span>信号时间：</span><span>{{item.gpsinfo.intime}}</span>
+                            </label>
+                        </ion-col>
+                        <ion-col col-3>
+                            <button ion-button class="button-follow" (click)="Btnfollow(item)" [ngStyle]="btnstyle(item.isFllow)" >{{btnfollow}}</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'report'">
+        <ion-item *ngFor="let item of caritem" (click)="Tocarinfo(item)" no-lines class="carlist-item">
+                <ion-row class="row-list">
+                        <ion-col col-1>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-T'">T</ion-col>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-V'">V</ion-col>
+                                <ion-col class="logo-span" *ngIf="item.devicetype == 'ZY-M'">M</ion-col>
+                        </ion-col>
+                        <ion-col col-5 class="col-name"  align-self-center>
+                            <div  class="span-name">
+                                {{item.devicename}}
+                            </div>
+                        </ion-col>
+                        <ion-col col-1 style="padding-right: 0px;">
+                            <img  class="img-col" [src]="Geturl(item.objectState)">
+                        </ion-col>
+                        <ion-col col-5 class="col-gps">
+                                <span class="span-status" [style.color]="spancolor">{{item.vehicleState}}</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType === ''">无定位</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType === '0'">基站定位</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType === '1'">GPS定位</span>
+                                <span class="span-gps" *ngIf="item.gpsinfo.locationType === '2'">wifi定位</span>
+                          </ion-col>
+                </ion-row>
+                <ion-row class="row-list">
+                    <ion-col col-9>
+                        <label class="lable-time">
+                            <span>定位时间：</span><span>{{item.gpsinfo.gpstime}}</span>
+                        </label><br/>
+                        <label class="lable-time">
+                            <span>信号时间：</span><span>{{item.gpsinfo.intime}}</span>
+                        </label>
+                    </ion-col>
+                    <ion-col col-3>
+                        <button ion-button class="button-follow" (click)="Btnfollow(item)" [ngStyle]="btnstyle(item.isFllow)" >{{btnfollow}}</button>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+    </ion-list>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+<!-- <ion-footer class="footer-back" no-border>
+  <ion-toolbar>
+    <ion-icon name="car-outline" class="icon-footer"></ion-icon>
+    <ion-label>车辆</ion-label>
+  </ion-toolbar>
+</ion-footer> -->

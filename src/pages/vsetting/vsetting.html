@@ -1,0 +1,85 @@
+<!--
+  Generated template for the VsettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header no-border class="head">
+
+    <ion-navbar class="navbar-header">
+      <ion-title class="title-header">{{title}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header> -->
+
+
+<ion-content class="bgcolor-content">
+    <ion-item no-lines class="wake-item">
+        <ion-row class="tishi-row">
+          <ion-col class="tishi-col">
+            提示：{{tishi}}
+          </ion-col>
+        </ion-row>
+    </ion-item>
+    <!-- changenum=1 一键设防指令 -->
+    <div *ngIf="changenum==1" class="onekey">
+      <ion-card>
+          <ion-segment [(ngModel)]="onekey" class="card-segment">
+              <ion-segment-button value="1">
+                  设防
+              </ion-segment-button>
+              <ion-segment-button value="0">
+                  撤防
+              </ion-segment-button>
+          </ion-segment>
+          <div [ngSwitch]="onekey">
+              <ion-list *ngSwitchCase="'1'" >
+                  <ion-item-divider light class="color-divider">即将设置一下状态：</ion-item-divider> 
+                  <ion-item class="color-item">
+                    <ion-label>设置一个圆形区域，半径为</ion-label>
+                    <ion-select [(ngModel)]="radius" class="colorvalue"> 
+                      <ion-option value="">——米</ion-option> 
+                      <ion-option value="100">100米</ion-option> 
+                      <ion-option value="200">200米</ion-option> 
+                      <ion-option value="300">300米</ion-option> 
+                      <ion-option value="400">400米</ion-option> 
+                      <ion-option value="500">500米</ion-option> 
+                      <ion-option value="800">800米</ion-option> 
+                      <ion-option value="1000">1公里</ion-option> 
+                      <ion-option value="2000">2公里</ion-option>  
+                    </ion-select> 
+                  </ion-item>
+                  <ion-item-divider light class="color-divider">注：当车辆离开圆形区域将产生非法移动报警</ion-item-divider> 
+              </ion-list>
+              <ion-list *ngSwitchCase="'0'">
+                  <ion-item-divider light class="color-divider">即将设置一下状态：</ion-item-divider> 
+                  <ion-item class="color-item">
+                    <ion-label>撤销非法移动报警和震动设防</ion-label>
+                  </ion-item>
+              </ion-list>
+          </div>
+      </ion-card>
+    </div>
+    <!-- changenum=2 单次点名指令 -->
+    <div *ngIf="changenum==2" class="call"></div>
+
+     <!-- changenum=3 回传间隔指令 -->
+     <div *ngIf="changenum==3" class="renturntime">
+        <ion-item no-lines class="up-item">
+            <ion-label>回传间隔：</ion-label> 
+            <ion-select [(ngModel)]="returntime" class="color-select"> 
+              <ion-option value="">请选择</ion-option>
+              <ion-option value="10">10秒</ion-option> 
+              <ion-option value="15">15秒</ion-option> 
+              <ion-option value="30">30秒</ion-option> 
+              <ion-option value="60">60秒</ion-option> 
+              <ion-option value="90">90秒</ion-option> 
+              <ion-option value="120">120秒</ion-option> 
+          </ion-select> 
+          </ion-item>
+     </div>
+
+     <!-- changenum=4 重启设备指令 -->
+     <div *ngIf="changenum == 4" class="restart"></div>
+    <button ion-button class="send-btn" (click)="sendset()">发送</button>
+</ion-content>

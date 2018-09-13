@@ -1,17 +1,80 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>
       Contact
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+  <diV style="position: relative;">
+      <div  class="div-top">
+
+      </div>
+      <ion-row class="row-top">
+          <ion-col class="col-top">
+            <img [src]="headimg" class="img-top">
+          </ion-col>
+      </ion-row>
+      <ion-row class="row-name">
+        <ion-col class="col-name">
+          {{nickname}}
+        </ion-col>
+      </ion-row>
+  </diV>
+ 
+  <ion-list class="list-head" no-line>
+    <!-- <ion-item class="item-head" no-border>
+      <ion-thumbnail  item-start class="img-head">
+        <img src="../../assets/carlogin/login1.png">
+      </ion-thumbnail >
+      <h2>Finn</h2>
+      
+    </ion-item> -->
+    <ion-item class="item-set">
+      <ion-avatar item-start>
+          <img src="../../assets/contact/角色.svg">
+      </ion-avatar>
+      账号
+    <h3 item-end>{{accountname}}</h3>
     </ion-item>
+    <!-- <ion-item class="item-set">
+        <ion-avatar item-start>
+            <img src="../../assets/contact/地图.svg">
+        </ion-avatar>
+      地图刷新时间
+      <h3 item-end>10S</h3>
+    </ion-item>  -->
+    <ion-item class="item-set">
+        <ion-avatar item-start>
+            <img src="../../assets/contact/地图.svg">
+        </ion-avatar>
+      <ion-label>地图刷新时间</ion-label>
+      <ion-select [(ngModel)]="reftime" (ngModelChange)="timeref()"  interface='action-sheet'>
+        <!-- <ion-option value=" " >请选择</ion-option> -->
+        <ion-option value="10">10s</ion-option>
+        <ion-option value="20">20s</ion-option>
+        <ion-option value="30">30s</ion-option>
+        <ion-option value="40">40s</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <button ion-item  class="item-set" (click)="Topush()">
+        <ion-avatar item-start>
+            <img src="../../assets/contact/推送.svg">
+        </ion-avatar>
+        报警推送设置
+    </button> 
+    <button ion-item  class="item-set" (click)="Toguanyu()">
+        <ion-avatar item-start>
+            <img src="../../assets/contact/关于.svg">
+        </ion-avatar>
+        关于
+    </button> 
   </ion-list>
+  <button ion-button block class="btn-count" (click)="presentConfirm()">解绑</button>
+
+     
+
 </ion-content>

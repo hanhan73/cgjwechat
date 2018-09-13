@@ -1,0 +1,57 @@
+<!--
+  Generated template for the AddcarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content  *ngIf="sta === 1">
+    <ion-list class="list-caritem">
+            <ion-item>
+              <ion-label>车 牌 号</ion-label>
+              <ion-input type="text" placeholder="必填" [(ngModel)]="addcaritem[0].carNamber"></ion-input>
+            </ion-item>
+            <button ion-item (click)="getparter()" >
+               <ion-row> 
+                 <ion-col col-3>账  户</ion-col>
+                 <ion-col col-9 class="account-col" *ngIf="parteritem === undefined">请选择</ion-col>
+                 <ion-col col-9 class="account-col" *ngIf="parteritem !== undefined">{{parteritem.partnername}}</ion-col>
+               </ion-row>
+            </button>  
+            <ion-item>
+                <ion-label>车 架 号</ion-label>
+                <ion-input type="text" placeholder="请输入车架号" [(ngModel)]="addcaritem.carja"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>车主姓名</ion-label>
+                <ion-input type="text" placeholder="请输入车主姓名" [(ngModel)]="addcaritem.username"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>车主手机</ion-label>
+                <ion-input type="text" placeholder="请输入车主手机" [(ngModel)]="addcaritem.userphone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>车 品 牌</ion-label>
+                <ion-input type="text" placeholder="请输入车品牌" [(ngModel)]="addcaritem.carbrand"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>车 型 号</ion-label>
+                <ion-input type="text" placeholder="请输入车型号" [(ngModel)]="addcaritem.cartype"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <ion-label>分 组 名</ion-label>
+                <ion-input type="text" placeholder="请选择车组名" [(ngModel)]="addcaritem.groupname"></ion-input>
+            </ion-item> -->
+          
+        <div padding>
+          <button ion-button block (click)="submit()">提 交 </button>
+        </div>
+    </ion-list>
+</ion-content>
+<ion-content  *ngIf="sta === 2">
+        <ion-list no-padding>
+            <button ion-item *ngFor="let p of parteritem" (click)="itemSelected(p)">
+              {{ p.partnername }}
+            </button>  
+          </ion-list>
+</ion-content>

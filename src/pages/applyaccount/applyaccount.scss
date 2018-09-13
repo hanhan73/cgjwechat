@@ -1,0 +1,69 @@
+page-applyaccount {
+  // ion-header {
+  //   height: 10%;
+  //   background: linear-gradient(to right, #39dabd, #10beeb);
+  //   display: flex;
+  //   justify-content:center;
+  //   align-items:Center;
+  //   ion-title {
+  //     color: white;
+  //     letter-spacing: 0.1rem;
+  //     text-align: center;
+  //     .toolbar-title{
+  //       color: white;
+  //     }
+  //   }
+  // }
+  /*ion-input:focus, ion-input:hover,  ion-input:active {
+    border-color: #4a8bfc;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background: #fdfdfd;
+  }
+  ion-input:placeholder-shown {
+    color: #9da5b3;
+  }*/
+  .id-row {
+    .id-col{
+      text-align: left;
+    }
+
+  }
+  ion-label {
+    color: #505050;
+    text-align: left;
+  }
+  ion-input {
+    color: #6b6b6b;
+    .text-input{
+      text-align: center;
+    }
+  }
+
+  .alert-span {
+    color: #6b6b6b;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .btn-row {
+    margin: 0% 15% 0% 15%;
+    button {
+      width: 100%;
+      // border-radius: 35px;
+      background-color:#416ADD;
+    }
+  }
+  .footer-row {
+    position: absolute;
+    bottom: 28%;
+    width: 100%;
+    .footer-col {
+      text-align: center;
+      color: #6b6b6b;
+    }
+  }
+  .pos-img {
+    position: absolute;
+    bottom: 0;
+  }
+}

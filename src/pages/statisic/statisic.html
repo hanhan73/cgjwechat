@@ -1,0 +1,28 @@
+<!--
+  Generated template for the StatisicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content>
+  <ion-item-group>
+    <ion-item-divider color="light">报警统计</ion-item-divider>
+    <button ion-item (click)="Toreport('101019','断电报警')">
+      断电报警
+    </button>  
+    <button ion-item (click)="Toreport('103037,103038,103039','二押报警')">
+      二押报警
+    </button>  
+    <button ion-item (click)="Toreport('5','五天无行驶')">
+      五天无行驶
+    </button>  
+    <button ion-item (click)="Toreport('103020','24小时无连接')">
+      24小时无连接
+    </button>  
+    <button ion-item (click)="Toreport(',2,3,5,101021,101022,101025,101027,102004,102005,103018,103019,103021,103022,103023,103024,103025,103026,103027,103028,103029,103030,103031,103032,103033,103034,103035,103036','警情总览')">
+      警情总览
+    </button>  
+  </ion-item-group>
+</ion-content>

@@ -1,0 +1,58 @@
+<!--
+  Generated template for the WakeupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header no-border class="head">
+
+  <ion-navbar class="navbar-header">
+    <ion-title class="title-header">追踪模式</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content class="bgcolor-content">
+  <ion-item no-lines class="wake-item">
+    <ion-row class="tishi-row">
+      <ion-col class="tishi-col">
+        提示：请确认该设备支持该项指令设置
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item no-lines class="up-item">
+    <span item-start>追踪开关：</span>
+    <ion-checkbox color="green" checked="true" disabled="true"></ion-checkbox>
+    <span item-left >开启</span>
+  </ion-item>
+  <ion-item no-lines class="up-item">
+    <!-- <span item-start>回传间隔：</span> -->
+    <ion-label>回传间隔：</ion-label> 
+    <ion-select [(ngModel)]="returntime" class="color-select"> 
+      <ion-option value="">请选择</ion-option>
+      <ion-option value="60">1分钟</ion-option> 
+      <ion-option value="120">2分钟</ion-option> 
+      <ion-option value="180">3分钟</ion-option> 
+      <ion-option value="240">4分钟</ion-option> 
+      <ion-option value="300">5分钟</ion-option> 
+  </ion-select> 
+  </ion-item>
+  <ion-item no-lines class="up-item">
+    <!-- <span item-start>回传间隔：</span> -->
+    <ion-label>追踪时间：</ion-label> 
+    <ion-select [(ngModel)]="tracktime" class="color-select"> 
+      <ion-option value="">请选择</ion-option> 
+      <ion-option value="60">1小时</ion-option> 
+      <ion-option value="120">2小时</ion-option> 
+      <ion-option value="180">3小时</ion-option> 
+      <ion-option value="240">4小时</ion-option> 
+      <ion-option value="360">6小时</ion-option> 
+      <ion-option value="480">8小时</ion-option> 
+      <ion-option value="1440">1天</ion-option> 
+      <ion-option value="10080">1周</ion-option> 
+      <ion-option value="43200">1月</ion-option> 
+  </ion-select> 
+  </ion-item>
+  <button ion-button class="send-btn" (click)="Sendset() ">发送</button>
+</ion-content>

@@ -1,0 +1,35 @@
+page-guanyu {
+    .row-logo {
+        margin-top: 15%;
+        .col-logo {
+            text-align: center;
+        }
+    }
+    .row-logo2 {
+        .col-logo {
+            text-align: center;
+            color: #7091F7;
+        }
+    }
+    .row-logo3 {
+        .col-logo {
+            text-align: center;
+            color: #5A5A5A;
+        }
+    }
+    .row-logo4 {
+        margin-left: 5%;
+        .col-logo {
+            text-align: left;
+            color: #5A5A5A;
+        }
+    }
+    .row-logo5 {
+        .col-logo {
+            text-align: center;
+            .img-code {
+                width: 50%;
+            }
+        }
+    }
+}

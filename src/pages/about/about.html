@@ -1,11 +1,47 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-
+<ion-content padding >
+  <ion-segment [(ngModel)]="bindlist">
+    <ion-segment-button value="4" (click)= "getlist()">
+      未绑定
+    </ion-segment-button>
+    <ion-segment-button value="3" (click)= "getlist()">
+      已绑定
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="bindlist">
+    <ion-list class="list-caritem" *ngSwitchCase="'4'">
+      <ion-item *ngFor="let item of caritem">
+        <h3>{{item.carNumber}}</h3>
+        <p>账户：{{item.partnerName}}</p>
+        <button ion-button small item-end icon-left color="danger" (click)= "Tobind(item)">
+            <ion-icon name="add"></ion-icon>
+          绑定</button>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list class="list-caritem" *ngSwitchCase="'3'">
+      <ion-item *ngFor="let item of caritem">
+        <h3>{{item.carNumber}}</h3>
+        <p>账户：{{item.partnerName}}</p>
+        <button ion-button small item-end icon-left color="dark" (click)= "Tobind(item)">
+            <ion-icon name="close"></ion-icon>
+          解绑</button>
+      </ion-item>
+    </ion-list>
+    
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
+
+<ion-footer>
+    <div padding>
+        <button ion-button class="addbtn" (click)="Toaddpage()" icon-left>
+            <ion-icon name="add-circle" class="icon-btn"></ion-icon>
+          新增车辆</button>
+      </div>
+</ion-footer>
